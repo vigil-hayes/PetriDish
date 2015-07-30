@@ -1,0 +1,4 @@
+struct StrainA : Bacteria {
+	// TODO
+
+};
