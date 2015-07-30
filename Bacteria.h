@@ -12,4 +12,11 @@
 //
 struct Bacteria : Creature {
 	// TODO: fill in the struct
+	Bacteria * food;
+	double rep_rate;
+	double lifetime;
+
+	Bacteria () {
+		// Empty constructor
+	}
 };

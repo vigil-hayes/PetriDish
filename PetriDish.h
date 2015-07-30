@@ -7,5 +7,7 @@
 //	Bacteria * ecosystem (a dynamic array of Bacteria contained in the PetriDish)
 //	bool full (false if ecosystem is not full, true if it is)
 struct PetriDish {
-	// TODO
+	int size;
+	Bacteria * ecosystem;
+	bool full;
 };
