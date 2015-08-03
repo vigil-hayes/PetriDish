@@ -29,6 +29,24 @@ int main() {
 			Bacteria as you like :)
 	*/
 
+	PetriDish petri;
+	Bacteria strain_a;
+	Bacteria strain_b;
+
+	strain_a.food = &strain_b;
+	strain_a.lifetime = 30.0;
+	strain_a.food->lifetime = 60.0; //set the lifetime of strain_b
+	strain_b.lifetime = 65.0; // set the lifetime of strain_b
+
+	cout << strain_a.lifetime << endl;
+	cout << strain_b.lifetime << endl;
+
+	petri.size = 100;
+
+	prepPetriDish(petri);
+	addToPetriDish(petri, strain_a, 25);
+	addToPetriDish(petri, strain_b, 25);
+
 	return 0;
 }
 
@@ -38,7 +56,16 @@ int main() {
 // allowed by pd
  
 void prepPetriDish(PetriDish & pd) {
-	// TODO: Step 3
+
+	// Create a Bacteria array on the heap
+	// that is size pd.size
+	pd.ecosystem = new Bacteria[pd.size];
+
+	// Set curr_size to 0
+	pd.curr_size = 0;
+
+	// Set full to false
+	pd.full = false;
 }
 
 
@@ -48,8 +75,60 @@ void prepPetriDish(PetriDish & pd) {
 // and return false
 // If the pd.ecosystem becomes full, set full to true
 bool addToPetriDish(PetriDish & pd, Bacteria strain, int number) {
-	// TODO: Step 4
+	int actual = 0;
+	int index;
+
+	// Check to see if there is enough room in pd
+	// to add all the bacteria indicated by number
+	if ((number + pd.curr_size) > pd.size) {
+		// Determine the ending index
+		// based on how many you can insert
+		actual = pd.size-pd.curr_size;
+		// Determine the index to start at
+		// Based on how full the dish is
+		if (pd.curr_size == 0) {
+			index = 0;
+		} else {
+			index = pd.curr_size - 1;
+		}
+	} else {
+		// Determine the index to start at
+		// Vased on how full the dish is
+		// and based on how many you can insert
+		actual = number;
+		if (pd.curr_size == 0) {
+                        index = 0;
+                } else {
+                        index = pd.curr_size - 1;
+                }   	
+	}
+
+	// For each bacteria we are to add
+	// until we either add number of bacteria
+	// or fill the petri dish
+	for(int i = (pd.curr_size-1); i < actual; i++) 
+		// Add strain to ecosystem
+		pd.ecosystem[i] = strain;
+		// Increase current size of ecosystem by 1
+		pd.curr_size++;
+	}
+	// If the ecosystem is full, return true
+	if (pd.curr_size == pd.size){
+		return true;
+	}
 	return false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

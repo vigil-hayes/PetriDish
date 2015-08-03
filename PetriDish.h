@@ -10,4 +10,5 @@ struct PetriDish {
 	int size;
 	Bacteria * ecosystem;
 	bool full;
+	int curr_size;
 };
