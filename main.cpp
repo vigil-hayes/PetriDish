@@ -15,6 +15,8 @@ using namespace std;
 
 void prepPetriDish(PetriDish & pd);
 bool addToPetriDish(PetriDish & pd, Bacteria strain, int number);
+void cleanPetriDish(PetriDish & pd);
+void expandEcosystem(PetriDish & pd, int newsize);
 
 int main() {
 	/* TODO: Step 5
@@ -119,15 +121,18 @@ bool addToPetriDish(PetriDish & pd, Bacteria strain, int number) {
 	return false;
 }
 
-
-
-
-
-
-
-
-
-
+void cleanPetriDish(PetriDish & pd) {
+	// TODO: Write a function that will
+	// "reset" a petridish to its newly
+	// instantiated state by deleting
+	// the ecosystem and setting curr_size to 0
+	// and full to false 
+}
+void expandEcosystem(PetriDish & pd, int newsize) {
+	// TODO: Write a function that will
+	// increase the size of pd's ecosystem to be
+	// new size if newsize is bigger than pd.size.
+}
 
 
 
