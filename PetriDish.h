@@ -1,4 +1,4 @@
-// TODO: Step 2
+// Step 2
 // Write the structure definition
 // for a structure called PetriDish.
 // PetriDish should have the following
