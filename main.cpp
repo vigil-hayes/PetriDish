@@ -4,6 +4,7 @@
 #include "Organism.h"
 #include "Creature.h"
 #include "Bacteria.h"
+#include "Space.h"
 #include "PetriDish.h"
 
 using namespace std;
@@ -11,12 +12,15 @@ using namespace std;
 
 /*
 	We are creating virtual Petri dishes
+	These will be used as a setting for our
+	game of life implementation.
 */
 
 void prepPetriDish(PetriDish & pd);
 bool addToPetriDish(PetriDish & pd, Bacteria strain, int number);
 void cleanPetriDish(PetriDish & pd);
 void expandEcosystem(PetriDish & pd, int newsize);
+void  createGameBoard(PetriDish & pd);
 
 int main() {
 	/* TODO: Step 5
@@ -68,6 +72,12 @@ void prepPetriDish(PetriDish & pd) {
 
 	// Set full to false
 	pd.full = false;
+
+	// TODO Step 11:
+	// Set the height and width
+	// of pd.gameboard (should
+	// accomodate pd.size number
+	// of Spaces)
 }
 
 
@@ -121,19 +131,30 @@ bool addToPetriDish(PetriDish & pd, Bacteria strain, int number) {
 	return false;
 }
 
+// Step 6: Implement 
 void cleanPetriDish(PetriDish & pd) {
-	// TODO: Write a function that will
-	// "reset" a petridish to its newly
-	// instantiated state by deleting
-	// the ecosystem and setting curr_size to 0
-	// and full to false 
+	delete [] pd.ecosystem; // delete the dynamic array
+	pd.ecosystem = NULL; // handle the pointer
+	pd.full = false; // no longer full
 }
+
+// TODO Step 7 [OPTIONAL]: Implement
 void expandEcosystem(PetriDish & pd, int newsize) {
-	// TODO: Write a function that will
+	// Write a function that will
 	// increase the size of pd's ecosystem to be
 	// new size if newsize is bigger than pd.size.
+	
 }
 
-
+// TODO Step 12: Create gameboard
+void  createGameBoard(PetriDish & pd) {
+	// Initialize pd.gameboard
+	// as an array of doubly linked Spaces
+	// The gameboard should be able to hold all
+	// the Bacteria in pd.ecosystem
+	// If not, increase the dimensions of
+	// pd.height and pd.width to accomodate
+	// all the Bacteria in pd.ecosystem
+}
 
 
