@@ -23,7 +23,7 @@ void expandEcosystem(PetriDish & pd, int newsize);
 void  createGameBoard(PetriDish & pd);
 
 int main() {
-	/* TODO: Step 5
+	/* Step 5
 		1. Instantiate a PetriDish called petri
 			petri starts with full set to false
 		2. Either take a command line argument or user input
@@ -74,10 +74,13 @@ void prepPetriDish(PetriDish & pd) {
 	pd.full = false;
 
 	// TODO Step 11:
+	// Initialize a pointer
+	// to a dynamic variable of type
+	// GameBoard and set it to pd.gameboard
 	// Set the height and width
-	// of pd.gameboard (should
+	// of pd.gameboard (SHOULD
 	// accomodate pd.size number
-	// of Spaces)
+	// of Bacteria)
 }
 
 

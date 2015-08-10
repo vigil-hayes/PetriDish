@@ -12,17 +12,7 @@ struct PetriDish {
 	bool full;
 	int curr_size;
 
-	// TODO Step 9: 
-	// Add a member variable called gameboard 
-	// that is an array of doubly linked list of Spaces
-
 	// TODO Step 10:
-	// Add a member variable called width
-	// which will represent the number of Spaces that comprise
-	// the width of the gameboard 
-
-	// TODO Step 11:
-	// Add a member variable called height
-	// which will represent the number of Spaces that comprise
-	// the height of the gameboard
+	// Add a member variable called gameboard
+	// which will be a pointer to a GameBoard struct
 };
