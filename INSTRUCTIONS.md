@@ -102,7 +102,8 @@ Set the height and width of pd.gameboard (SHOULD accomodate pd.size number of Ba
 ## Step 12: createGameBoard
 Write the definition of a function called createGameBoard in main.cpp
 
-The function initializes pd.gameboard as a new GameBoard.
+The function should fill in and generate the array of doubly linked lists
+associated with *pd.gameboard->board*.
 
 *pd.gameboard* should be able to hold all the Bacteria in pd.ecosystem.
 If not, increase the dimensions of *pd.gameboard->height* and *pd.gameboard->width* to accomodate all the Bacteria in pd.ecosystem.
