@@ -5,5 +5,5 @@
 struct GameBoard {
 	int height;
 	int width;
-	Spaces * board[]; // Dynamic array of doubly linked list 
+	Space ** board; // Dynamic array of doubly linked list 
 };

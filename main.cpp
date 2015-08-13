@@ -5,6 +5,7 @@
 #include "Creature.h"
 #include "Bacteria.h"
 #include "Space.h"
+#include "GameBoard.h"
 #include "PetriDish.h"
 
 using namespace std;
@@ -22,7 +23,7 @@ void cleanPetriDish(PetriDish & pd);
 void expandEcosystem(PetriDish & pd, int newsize);
 void createGameBoard(PetriDish & pd);
 void addSpaceToDoubleLinkedList(Space * list, Space * space);
-Space * connectHeadToTail(Space * head)
+Space * connectHeadToTail(Space * head);
 
 int main() {
 	/* Step 5
@@ -130,17 +131,14 @@ bool addToPetriDish(PetriDish & pd, Bacteria strain, int number) {
 	// For each bacteria we are to add
 	// until we either add number of bacteria
 	// or fill the petri dish
-	for(int i = index; i < actual; i++) 
+	for(int i = index; i < actual; i++) {
 		// Add strain to ecosystem
 		pd.ecosystem[i] = strain;
 		// Increase current size of ecosystem by 1
 		pd.curr_size++;
 	}
 	// If the ecosystem is full, return true
-	if (pd.curr_size == pd.size){
-		return true;
-	}
-	return false;
+	return (pd.curr_size == pd.size);
 }
 
 // Step 6: Implement 
@@ -167,7 +165,7 @@ void  createGameBoard(PetriDish & pd) {
 	// If not, increase the dimensions of
 	// pd.height and pd.width to accomodate
 	// all the Bacteria in pd.ecosystem
-	pd.gameboard->board = new Space * [pd.gameboard->width]; // THIS IS WHERE WE LEFT OFF IN CLASS!
+	pd.gameboard->board = new Space*[pd.gameboard->width]; // THIS IS WHERE WE LEFT OFF IN CLASS!
 }
 
 // Adds a Space to the head of a doubly linked list of Spaces
@@ -184,7 +182,7 @@ void addSpaceToDoubleLinkedList(Space * list, Space * space) {
 Space * connectHeadToTail(Space * head) {
 	Space * current = head;
 	while(current->south != NULL && current->south != head) {
-		current = current->sourth;
+		current = current->south;
 	}
 	
 	current->south = head;
