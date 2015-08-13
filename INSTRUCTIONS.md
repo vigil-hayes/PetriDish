@@ -61,3 +61,49 @@ bool addToPetriDish(PetriDish & pd, Bacteria strain, int number) {
 	return false;
 }
 ```
+
+## Step 6: cleanPetriDish
+Fill in the function definition for cleanPetriDish.
+
+It should clear the dynamically allocated contents of
+*pd.ecosystem*, change *pd.full* to false. 
+
+## Step 7 [OPTIONAL]: expandEcosystem
+Fill in the function definition for expandEcosystem.
+
+It should expand *pd.ecoystem* to an array of the new size passed
+in as a parameter.
+
+# Part 2: Setting up for game play
+## Step 8: Space structure
+Create a definition for a struct called Space. 
+
+1. Space is a struct that represents a unit of physical space in a PetriDish
+2. Space has a Bacteria that currently occupies its space called *bacteria*
+3. Space has a pointer to another Space called *north*
+4. Space has a pointer to another Space called *south*
+5. When Spaces are connected together, they can form a chain of doubly linked North-to-South Spaces
+ 
+## Step 9: GameBoard structure
+Create a definition for a struct called GameBoard.
+
+1. GameBoard has a member variable called height
+2. GameBoard has a member variable called width
+3. GameBoard has an member variable that is an array of doubly linked list of Spaces called board
+
+## Step 10: Add member variable to PetriDish
+Add a member variable called gameboard that points to a GameBoard
+
+
+## Step 11: Edit definition of prepPetriDish function in main.cpp
+Initialize pd.gameboard to a dynamic GameBoard variable. 
+Set the height and width of pd.gameboard (SHOULD accomodate pd.size number of Bacteria).
+
+## Step 12: createGameBoard
+Write the definition of a function called createGameBoard in main.cpp
+
+The function should fill in and generate the array of doubly linked lists
+associated with *pd.gameboard->board*.
+
+*pd.gameboard* should be able to hold all the Bacteria in pd.ecosystem.
+If not, increase the dimensions of *pd.gameboard->height* and *pd.gameboard->width* to accomodate all the Bacteria in pd.ecosystem.
