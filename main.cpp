@@ -22,6 +22,7 @@ void cleanPetriDish(PetriDish & pd);
 void expandEcosystem(PetriDish & pd, int newsize);
 void createGameBoard(PetriDish & pd);
 void addSpaceToDoubleLinkedList(Space * list, Space * space);
+Space * connectHeadToTail(Space * head)
 
 int main() {
 	/* Step 5
