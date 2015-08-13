@@ -20,7 +20,8 @@ void prepPetriDish(PetriDish & pd);
 bool addToPetriDish(PetriDish & pd, Bacteria strain, int number);
 void cleanPetriDish(PetriDish & pd);
 void expandEcosystem(PetriDish & pd, int newsize);
-void  createGameBoard(PetriDish & pd);
+void createGameBoard(PetriDish & pd);
+void addSpaceToDoubleLinkedList(Space * list, Space * space);
 
 int main() {
 	/* Step 5
@@ -160,4 +161,24 @@ void  createGameBoard(PetriDish & pd) {
 	// all the Bacteria in pd.ecosystem
 }
 
+// Adds a Space to the head of a doubly linked list of Spaces
+void addSpaceToDoubleLinkedList(Space * list, Space * space) {
+	Space * head = list; // head is always at the "southern" most part of a Space chain
+	head->south = space; // set the new southern most point to the new space
+	space->north = head; // the north for new space is the head
+	space->south = NULL; // Set the southern most south pointer to NULL (Tail)
+	head = space; // the new head is now the new space
+}
 
+// Connects the head and tail of a doubly linked list
+// of Spaces and returns a pointer to the tail
+Space * connectHeadToTail(Space * head) {
+	Space * current = head;
+	while(current->south != NULL && current->south != head) {
+		current = current->sourth;
+	}
+	
+	current->south = head;
+	head->north = current;
+	return current;
+}
