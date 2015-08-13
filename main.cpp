@@ -130,7 +130,7 @@ bool addToPetriDish(PetriDish & pd, Bacteria strain, int number) {
 	// For each bacteria we are to add
 	// until we either add number of bacteria
 	// or fill the petri dish
-	for(int i = (pd.curr_size-1); i < actual; i++) 
+	for(int i = index; i < actual; i++) 
 		// Add strain to ecosystem
 		pd.ecosystem[i] = strain;
 		// Increase current size of ecosystem by 1
