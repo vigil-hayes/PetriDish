@@ -15,4 +15,5 @@ struct PetriDish {
 	// TODO Step 10:
 	// Add a member variable called gameboard
 	// which will be a pointer to a GameBoard struct
+	GameBoard * gameboard;
 };

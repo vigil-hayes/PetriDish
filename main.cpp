@@ -55,6 +55,7 @@ int main() {
 	addToPetriDish(petri, strain_a, 25);
 	addToPetriDish(petri, strain_b, 25);
 
+
 	return 0;
 }
 
@@ -83,6 +84,12 @@ void prepPetriDish(PetriDish & pd) {
 	// of pd.gameboard (SHOULD
 	// accomodate pd.size number
 	// of Bacteria)
+	// Prepapre the PetriDish with 
+        // a new GameBoard
+        pd.gameboard = new GameBoard;
+        pd.gameboard->width = pd.size;
+        pd.gameboard->height = pd.size;
+
 }
 
 
@@ -160,6 +167,7 @@ void  createGameBoard(PetriDish & pd) {
 	// If not, increase the dimensions of
 	// pd.height and pd.width to accomodate
 	// all the Bacteria in pd.ecosystem
+	pd.gameboard->board = new Space * [pd.gameboard->width]; // THIS IS WHERE WE LEFT OFF IN CLASS!
 }
 
 // Adds a Space to the head of a doubly linked list of Spaces
